@@ -6,12 +6,17 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title"><%= bijou.name %></h5>
-            <p class="card-text"><%= bijou.category.name %></p>
+            <p class="card-text"><%= bijou.category %></p>
             <p>Amount: <%= humanized_money_with_symbol(bijou.price) %></p>
-            <%= link_to "More details", bijou_path(bijou), class: "btn btn-primary" %>
+            <%= link_to "More details", edit_bijou_path(bijou), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
+      <% if user_signed_in? %>
+        <% if current_user.admin == true %>
+          <%= link_to "edit", edit_bijou_path(bijou) %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
