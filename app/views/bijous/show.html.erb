@@ -6,6 +6,10 @@
       <h1><%= @bijou.name %></h1>
       <p>Some awesome description of our amazing bijou.</p>
       <p>Amount: <%= humanized_money_with_symbol(@bijou.price) %></p>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'bijou_id', @bijou.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
