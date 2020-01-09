@@ -24,4 +24,28 @@ class BijousController < ApplicationController
   def show
     @bijou = Bijou.find(params[:id])
   end
+
+  def new
+
+  end
+
+  def create
+
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
+  end
+
+  private
+
+
 end

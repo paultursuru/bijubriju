@@ -3,11 +3,19 @@
     <%= image_tag "ring-square" %>
   <% end %>
 
-  <%= link_to "bijoux", bijous_path, class: "btn btn-info"  %>
   <%= link_to "bagues", bijous_bagues_path, class: "btn btn-info"  %>
   <%= link_to "boucles", bijous_boucles_path, class: "btn btn-info"  %>
   <%= link_to "broches", bijous_broches_path, class: "btn btn-info"  %>
   <%= link_to "colliers", bijous_colliers_path, class: "btn btn-info"  %>
+  <% if user_signed_in? %>
+    <% if current_user.admin == true %>
+      <%= link_to "add a Biju", new_bijou_path, class: "btn btn-outline-info" %>
+      <%= link_to "edit a Biju", root_path, class: "btn btn-outline-info" %>
+    <% end %>
+    <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger"  %>
+  <% else %>
+    <%= link_to "sign in", new_user_session_path, class: "btn btn-primary"  %>
+  <% end %>
   <%= link_to "contact", pages_contact_path, class: "btn btn-dark"%>
 
 </div>
