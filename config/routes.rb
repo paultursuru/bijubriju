@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   # get 'bijous/index'
   # get 'bijous/show'
-  resources :bijous, only: [:index, :show, :create]
 
   get 'bijous/bagues'
   get 'bijous/broches'
   get 'bijous/boucles'
   get 'bijous/colliers'
 
+  resources :bijous, only: [:index, :show, :create]
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
