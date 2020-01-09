@@ -1,0 +1,2 @@
+class Bijou < ApplicationRecord
+end
