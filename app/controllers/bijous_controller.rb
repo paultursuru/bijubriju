@@ -67,7 +67,7 @@ class BijousController < ApplicationController
   private
 
   def bijou_params
-    params.require(:bijou).permit(:sku, :name, :category, :price_cents, :tag_list)
+    params.require(:bijou).permit(:sku, :name, :category, :price_cents, :tag_list, :photo)
   end
 
 end

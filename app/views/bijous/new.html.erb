@@ -5,6 +5,7 @@
     <%= f.input :sku %>
     <%= f.input :price_cents %>
     <%= f.input :tag_list, label: "Add tags", hint: "Add your tags, separated by commas" %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
   <% end %>
 </div>
