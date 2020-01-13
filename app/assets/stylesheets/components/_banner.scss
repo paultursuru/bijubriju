@@ -1,10 +1,11 @@
-.home-banner {
+.main-container {
   height: calc(100vh - 170px);
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 
 .biju-logo {

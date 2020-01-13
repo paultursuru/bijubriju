@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bijubriju</title>
+    <title>Biju Briju</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +13,9 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= yield %>
+    <div class="main-container">
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
   </body>
 </html>
