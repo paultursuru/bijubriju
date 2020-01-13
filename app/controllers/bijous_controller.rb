@@ -40,6 +40,7 @@ class BijousController < ApplicationController
     @bijou = Bijou.new(bijou_params)
 
     if @bijou.save
+      create_pictures
       redirect_to bijou_path(@bijou)
     else
       render :new
@@ -67,7 +68,13 @@ class BijousController < ApplicationController
   private
 
   def bijou_params
-    params.require(:bijou).permit(:sku, :name, :category, :price_cents, :tag_list, :photo)
+    params.require(:bijou).permit(:sku, :name, :category, :price_cents, :tag_list, photos: [])
   end
 
+  def create_pictures
+  photos = params.dig(:bijou, :pictures) || []
+  photos.each do |photo|
+    @bijou.pictures.create(photo: photo)
+  end
+end
 end

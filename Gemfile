@@ -8,6 +8,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.2'
 gem 'redis'
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -20,6 +21,9 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'cloudinary', '~> 1.12.0'
+gem 'carrierwave', '1.3.1'
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
