@@ -10,6 +10,12 @@
         <%= hidden_field_tag 'bijou_id', @bijou.id %>
         <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
       <% end %>
+      <h3>Wanna see these other bijous ?</h3>
+      <ul>
+        <% @related_bijous.each do |r| %>
+          <li><%= r.name %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

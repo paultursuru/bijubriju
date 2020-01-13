@@ -1,8 +1,14 @@
 class BijousController < ApplicationController
   skip_before_action :authenticate_user!
+  tags = ActsAsTaggableOn::Tag.most_used(10)
 
   def index
-    @bijous = Bijou.all
+    # Bijou with a tag in params or all the bijoux
+    if params[:tag].present?
+      @bijous = Bijou.tagged_with(params[:tag])
+    else
+      @bijous = Bijou.all
+    end
   end
 
   def bagues
@@ -23,6 +29,7 @@ class BijousController < ApplicationController
 
   def show
     @bijou = Bijou.find(params[:id])
+    @related_bijous = @bijou.find_related_tags
   end
 
   def new
@@ -60,7 +67,7 @@ class BijousController < ApplicationController
   private
 
   def bijou_params
-    params.require(:bijou).permit(:sku, :name, :category, :price_cents)
+    params.require(:bijou).permit(:sku, :name, :category, :price_cents, :tag_list)
   end
 
 end
