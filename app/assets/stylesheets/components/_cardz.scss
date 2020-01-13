@@ -1,22 +1,102 @@
 .biju-cards {
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
+  // top: -80px;
+  position: relative;
 }
 
 .biju-card {
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 400px;
   background: white;
-  border-radius: 20px;
-  padding: 10px;
+  padding: 5px;
   margin: 15px;
-  border: solid 2px red;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .nice-box {
-  width: 80vw;
-  height: 70vh;
+  width: 100vw;
+  height: 80vh;
   background: white;
   display: flex;
-  border-radius: 10px;
+  flex-wrap: wrap;
+  padding: 10px 50px;
+  justify-content: center;
+}
+
+.nav-btns {
+  width: 100%;
+  height: max-content;
+  margin-top: 20px;
+}
+
+.bijou-info {
+  display: flex;
+  justify-content: center;
+}
+
+.bijou-name, .bijou-tag {
+  color: black;
+}
+
+.bijou-name {
+  position: absolute;
+  top: 25px;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.btn-tags {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.btn-tag {
+  border-radius: 20px;
+  color: lightgrey;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 15px;
+  margin: 3px;
+  border: 2px solid $yellow;
+  background-color: transparent;
+  transition: all 0.1s ease;
+  &:hover {
+    text-decoration: none;
+    color: whitesmoke;
+    background: lightgrey;
+    transition: all 0.1s ease;
+  }
+}
+
+.big-tag {
+  font-size: 15px;
+  background: whitesmoke;
+  color: black;
+  border-color: black;
+}
+
+.edit-admin {
+  height: max-content;
+  position: relative;
+  right: 40px;
+  top: 5px;
+  background: blanchedalmond;
+  border-color: black;
+  color: black;
+}
+
+.bijou-image {
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

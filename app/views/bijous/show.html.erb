@@ -4,11 +4,16 @@
     </div>
     <div class="col-sm-12 col-md-6">
       <h1><%= @bijou.name %></h1>
+      <h4><%= @bijou.category %></h4>
       <p>Some awesome description of our amazing bijou.</p>
       <p>Amount: <%= humanized_money_with_symbol(@bijou.price) %></p>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'bijou_id', @bijou.id %>
         <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <% end %>
+      <%= cl_image_tag @bijou.photo.key, height: 300, width: 200, crop: :fill %>
+      <% @bijou.tag_list.each do |tag| %>
+        <%= link_to tag, tagged_path(tag: tag) %>
       <% end %>
       <h3>Wanna see these other bijous ?</h3>
       <ul>

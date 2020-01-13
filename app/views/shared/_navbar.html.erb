@@ -5,7 +5,6 @@
       <% if user_signed_in? %>
         <% if current_user.admin == true %>
           <%= link_to "add", new_bijou_path, class: "nav-btn nav-tools" %>
-          <%= link_to "edit", root_path, class: "nav-btn nav-tools" %>
         <% else %>
           <%= link_to "panier", "#", class: "nav-btn nav-cart" %>
         <% end %>

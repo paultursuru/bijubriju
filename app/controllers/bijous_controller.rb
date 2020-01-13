@@ -1,6 +1,5 @@
 class BijousController < ApplicationController
   skip_before_action :authenticate_user!
-  tags = ActsAsTaggableOn::Tag.most_used(10)
 
   def index
     # Bijou with a tag in params or all the bijoux

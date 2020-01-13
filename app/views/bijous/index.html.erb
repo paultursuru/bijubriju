@@ -1,20 +1,28 @@
 <div class="nice-box">
+  <div class="nav-btns">
+    <% ActsAsTaggableOn::Tag.most_used(9).each do |tag| %>
+      <%= link_to tag, tagged_path(tag: tag.name), class: "btn-tag big-tag" %>
+    <% end %>
+  </div>
   <div class="biju-cards">
     <% @bijous.each do |bijou| %>
-      <div class="biju-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bijou.photo.key, height: 300, width: 200, crop: :fill %>')">
-        <%= link_to bijou_path(bijou) do %>
-              <h5 class=""><%= bijou.name %></h5>
-              <p><%= humanized_money_with_symbol(bijou.price) %></p>
+      <div class="biju-card">
+        <%= link_to bijou_path(bijou), class: "bijou-info" do %>
+          <%= cl_image_tag bijou.photo.key, height: 400, width: 300, crop: :fill, class: "bijou-image" %>
+          <div class="bijou-name">
+            <h5><%= bijou.name%></h5>
+            <p><%= humanized_money_with_symbol(bijou.price) %></p>
+          </div>
         <% end %>
-        <p>
+        <div class="btn-tags">
           <% bijou.tag_list.each do |tag| %>
-            <%= link_to tag, tagged_path(tag: tag) %>
+            <%= link_to tag, tagged_path(tag: tag), class: "btn-tag" %>
           <% end %>
-        </p>
+        </div>
       </div>
       <% if user_signed_in? %>
         <% if current_user.admin == true %>
-          <%= link_to "edit", edit_bijou_path(bijou) %>
+          <%= link_to "edit", edit_bijou_path(bijou), class: "btn-tag edit-admin" %>
         <% end %>
       <% end %>
     <% end %>
